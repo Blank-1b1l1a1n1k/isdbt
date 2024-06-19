@@ -1,0 +1,238 @@
+/* Estilos generales */
+body {
+    font-family: Roboto, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Asegura que los elementos de la calculadora estén sobre el fondo */
+}
+
+.calculadora {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #333;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.calculadora h1 {
+    color: #ffca28;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.seccion {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #555;
+    border: 1px solid #666;
+    padding: 8px;
+    text-align: center;
+}
+
+tbody td {
+    border: 1px solid #666;
+    padding: 8px;
+    text-align: center;
+}
+
+select,
+input[type="number"] {
+    width: calc(100% - 12px);
+    padding: 6px;
+    margin: 6px 0;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #ffca28; /* Ajuste del color */
+    color: #000;
+    font-weight: bold; /* Texto en negrita */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer {
+    text-align: center;
+    color: #ccc;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* Estilos para el fondo */
+.fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none; /* Evita que el fondo interfiera con los elementos interactivos */
+}
+
+/* Estilos para las antenas */
+.antenas {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.antena {
+    width: 20px;
+    height: 100px;
+    background-color: #ffca28;
+    animation: antenaMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes antenaMove {
+    0%, 100% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.2);
+    }
+}
+
+/* Estilos para las letras desplazantes */
+.texto-fondo,
+.letras-desplazantes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px; /* Ajuste del tamaño de fuente */
+    color: #ffca28;
+    text-transform: uppercase;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.letras-desplazantes {
+    font-size: 18px; /* Ajuste del tamaño de fuente */
+    white-space: nowrap;
+    animation: desplazar 20s linear infinite;
+}
+
+@keyframes desplazar {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Estilos para los símbolos de modulación */
+.modulaciones {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+.modulacion {
+    display: inline-block;
+    margin-right: 10px;
+    color: #ffca28;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0.5;
+    animation: modulacionAnim 4s ease-in-out infinite alternate;
+}
+
+@keyframes modulacionAnim {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Animación de reseteo */
+.animacion-reset {
+    animation: animacionReset 1s ease forwards;
+}
+
+@keyframes animacionReset {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+/* Estilo de la nueva pantalla */
+.nueva-pantalla {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 24px;
+    animation: aparecer 0.5s ease forwards;
+    z-index: 1000;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.btn {
+    color: #ffecb3; /* Ajuste del color del texto */
+}
+
+.botones {
+    text-align: center; /* Centrar los botones */
+}
+
+.seccion {
+    display: flex; /* Alineación de Tiempo de Guarda y selector */
+    align-items: center;
+}
+
+.seccion label {
+    margin-right: 10px;
+}
